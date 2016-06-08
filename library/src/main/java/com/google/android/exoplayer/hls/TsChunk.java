@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer.hls;
 
+import android.util.Log;
+
 import com.google.android.exoplayer.chunk.Format;
 import com.google.android.exoplayer.chunk.MediaChunk;
 import com.google.android.exoplayer.extractor.DefaultExtractorInput;
@@ -114,7 +116,10 @@ public final class TsChunk extends MediaChunk {
         while (result == Extractor.RESULT_CONTINUE && !loadCanceled) {
           result = extractorWrapper.read(input);
         }
-      } finally {
+      } catch (Exception e){
+        Log.d("test", "exception "+ e.getMessage() + " when loading "+dataSpec.toString());
+        throw e;
+      }finally {
         bytesLoaded = (int) (input.getPosition() - dataSpec.absoluteStreamPosition);
       }
     } finally {
