@@ -224,6 +224,7 @@ import java.util.Locale;
         + "prog_index.m3u8", Util.TYPE_HLS),
     new Sample("Apple ID3 metadata", "http://devimages.apple.com/samplecode/adDemo/ad.m3u8",
         Util.TYPE_HLS),
+          new Sample("SSAI Preroll Params Test", "http://manifest.auditude.com/auditude/variant/us_2016_05_15_texas-charter-bus-crash-pkg.kgns/aHR0cDovL2Nubmlvcy1mLmFrYW1haWhkLm5ldC9pL2Nubi9iaWcvdXMvMjAxNi8wNS8xNS90ZXhhcy1jaGFydGVyLWJ1cy1jcmFzaC1wa2cua2duc181MjI5MzVfaW9zXyw2NTAsODQwLDEyNDAsMzAwMCwubXA0LmNzbWlsL21hc3Rlci5tM3U4P19fYV9fPW9mZiZfX2JfXz0xMjQw.m3u8?__sid__=1823478987234&u=ac217921a4a853e52310ebc459eef367&z=131829&k=stream=CNNGo-androidtv-vod-pre;udid=laksdjfalskjflaskdjfj;caid=cnn-us/2016/05/15/texas-charter-bus-crash-pkg.kgns&pttrackingmode=sstm&pttrackingversion=v1&ptdebug=true", Util.TYPE_HLS)
   };
 
   public static final Sample[] MISC = new Sample[] {
