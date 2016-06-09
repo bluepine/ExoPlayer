@@ -15,13 +15,13 @@
  */
 package com.google.android.exoplayer.upstream;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.google.android.exoplayer.C;
 import com.google.android.exoplayer.util.Assertions;
 import com.google.android.exoplayer.util.Predicate;
 import com.google.android.exoplayer.util.Util;
-
-import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -207,6 +207,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
     if (responseCode < 200 || responseCode > 299) {
       Map<String, List<String>> headers = connection.getHeaderFields();
       closeConnectionQuietly();
+      Log.d("test", "invalid response code "+ responseCode + " when loading "+dataSpec.toString());
       throw new InvalidResponseCodeException(responseCode, headers, dataSpec);
     }
 
