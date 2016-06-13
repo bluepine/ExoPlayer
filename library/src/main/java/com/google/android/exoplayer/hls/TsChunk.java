@@ -105,6 +105,7 @@ public final class TsChunk extends MediaChunk {
       skipLoadedBytes = false;
     }
 
+    Log.d("test", "start to load "+loadDataSpec.toString());
     try {
       ExtractorInput input = new DefaultExtractorInput(dataSource,
           loadDataSpec.absoluteStreamPosition, dataSource.open(loadDataSpec));
@@ -117,7 +118,7 @@ public final class TsChunk extends MediaChunk {
           result = extractorWrapper.read(input);
         }
       } catch (Exception e){
-        Log.d("test", "exception "+ e.getMessage() + " when loading "+dataSpec.toString());
+        Log.e("test", "exception "+ e.getMessage() + " when loading "+dataSpec.toString(), e);
         throw e;
       }finally {
         bytesLoaded = (int) (input.getPosition() - dataSpec.absoluteStreamPosition);

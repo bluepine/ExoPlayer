@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer.chunk;
 
+import android.util.Log;
+
 import com.google.android.exoplayer.upstream.DataSource;
 import com.google.android.exoplayer.upstream.DataSpec;
 
@@ -83,6 +85,7 @@ public abstract class DataChunk extends Chunk {
   @Override
   public final void load() throws IOException, InterruptedException {
     try {
+      Log.d("test", "start to load "+dataSpec.toString());
       dataSource.open(dataSpec);
       limit = 0;
       int bytesRead = 0;
@@ -94,6 +97,7 @@ public abstract class DataChunk extends Chunk {
         }
       }
       if (!loadCanceled) {
+        Log.d("test", "data loaded for "+dataSpec.toString() + " : " + new String(data));
         consume(data, limit);
       }
     } finally {

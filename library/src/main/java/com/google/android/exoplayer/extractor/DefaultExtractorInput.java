@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer.extractor;
 
+import android.util.Log;
+
 import com.google.android.exoplayer.C;
 import com.google.android.exoplayer.upstream.DataSource;
 
@@ -239,7 +241,8 @@ public final class DefaultExtractorInput implements ExtractorInput {
     }
     int bytesRead = dataSource.read(target, offset + bytesAlreadyRead, length - bytesAlreadyRead);
     if (bytesRead == C.RESULT_END_OF_INPUT) {
-      if (bytesAlreadyRead == 0 && allowEndOfInput) {
+      Log.d("test", "get EOF for "+dataSource+" offset: "+offset+" length: "+length+ " bytesAlreadyRead: " + bytesAlreadyRead);
+      if (allowEndOfInput) {
         return C.RESULT_END_OF_INPUT;
       }
       throw new EOFException();

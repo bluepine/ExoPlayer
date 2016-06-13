@@ -19,6 +19,7 @@ import com.google.android.exoplayer.ParserException;
 import com.google.android.exoplayer.upstream.Loader.Loadable;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,6 +90,7 @@ public final class UriLoadable<T> implements Loadable {
   public final void load() throws IOException, InterruptedException {
     DataSourceInputStream inputStream = new DataSourceInputStream(uriDataSource, dataSpec);
     try {
+//      Log.d("test", "start to load "+uriDataSource.getUri().toString(), new Throwable());
       inputStream.open();
       result = parser.parse(uriDataSource.getUri(), inputStream);
     } finally {
